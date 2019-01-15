@@ -1,0 +1,129 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.3.11'
+
+    ext.versions = [
+            'minSdk'             : 17,
+            'compileSdk'         : 28,
+            'supportVer'         : '28.0.0',
+
+            'androidPlugin'      : '3.2.1',
+            'androidrate'        : '1.1.7',
+            'archComp'           : '1.1.0',
+            'camera'             : '0.7.0',
+            'ccp'                : '2.0.2',
+            'circleindicator'    : '1.2.2@aar',
+            'circularimageview  ': '3.0.2',
+            'crashlytics'        : '2.6.8@aar',
+            'constraint_layout  ': '1.1.3',
+            'dagger2'            : '2.16',
+            'buildTools'         : '28.0.3',
+            'branch'             : '2.+',
+            'kotlin'             : '1.3.0',
+            'kprogresshud'       : '1.1.0',
+            'constraintLayout'   : '1.1.3',
+            'converter-gson'     : '2.3.0',
+            'facebook'           : '4.32.0',
+            'firebase'           : '16.0.4',
+            'gms'                : '4.0.1',
+            'gson'               : '2.8.0',
+            'logging_interceptor': '3.8.1',
+            'material_dialogs'   : '0.9.4.5',
+            'mtdialog'           : '4.1.0',
+            'overscroll'         : '1.0.4',
+            'parceler-api'       : '1.1.9',
+            'play_services'      : '16.0.0',
+            'pusher'             : '1.6.0',
+            'retrofit'           : '2.3.0',
+            'stetho'             : '1.5.0',
+            'scrollview'         : '1.4.4',
+            'okhttp'             : '3.9.0',
+            'picasso'            : '2.5.2',
+            'jodaTime'           : "2.9.9",
+            'sourceCompat'       : JavaVersion.VERSION_1_8,
+            'targetCompat'       : JavaVersion.VERSION_1_8
+    ]
+
+
+    ext.deps = [
+            android   : [
+                    'gradlePlugin': "com.android.tools.build:gradle:${versions.androidPlugin}",
+            ],
+            support   : [
+                    'appCompat'   : "com.android.support:appcompat-v7:${versions.supportVer}",
+                    'recyclerView': "com.android.support:recyclerview-v7:${versions.supportVer}",
+                    'cardView'    : "com.android.support:cardview-v7:${versions.supportVer}",
+                    'support'     : "com.android.support:support-v4:${versions.supportVer}",
+                    //'designSupport': "com.android.support:design:${versions.supportVer}",
+                    'palette'     : "com.android.support:palette-v7:${versions.supportVer}",
+                    'constraint'  : "com.android.support.constraint:constraint-layout:${versions.constraintLayout}",
+                    'extensions'  : "android.arch.lifecycle:extensions:1.1.1",
+                    'viewmodel'   : "android.arch.lifecycle:viewmodel:1.1.1"
+            ],
+            dagger    : [
+                    'dagger': "com.google.dagger:dagger:${versions.dagger2}"
+            ],
+            kotlin    : [
+                    'gradlePlugin': "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
+                    'stdlib'      : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
+            ],
+            proguard  : [
+                    'embeddable': "org.jetbrains.kotlin:kotlin-compiler-embeddable:${versions.kotlin}"
+            ],
+            google    : [
+                    'gson'     : "com.google.code.gson:gson:${versions.gson}",
+                    'fire-core': "com.google.firebase:firebase-core:${versions.firebase}",
+                    'fire-auth': "com.google.firebase:firebase-auth:${versions.firebase}",
+                    'fire-mess': "com.google.firebase:firebase-messaging:17.3.4",
+                    'location' : "com.google.android.gms:play-services-location:${versions.play_services}",
+                    'maps'     : "com.google.android.gms:play-services-maps:${versions.maps}",
+                    'places'   : "com.google.android.gms:play-services-places:${versions.play_services}",
+                    'gmsPlugin': "com.google.gms:google-services:${versions.gms}"
+            ],
+            square    : [
+                    'retrofit'           : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                    'retroRx'            : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}",
+                    'moshi'              : "com.squareup.retrofit2:converter-moshi:${versions.retrofit}",
+                    'gsonConverter'      : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+                    'okhttp'             : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+                    'picasso'            : "com.squareup.picasso:picasso:${versions.picasso}",
+                    'logging_interceptor': "com.squareup.okhttp3:logging-interceptor:${versions.logging_interceptor}"
+            ],
+            facebook  : [
+                    'stetho'            : "com.facebook.stetho:stetho:${versions.stetho}",
+                    'networkInterceptor': "com.facebook.stetho:stetho-okhttp3:${versions.stetho}"
+            ],
+            rxjava    : [
+                    rxjava   : "io.reactivex.rxjava2:rxjava:2.1.15",
+                    rxandroid: "io.reactivex.rxjava2:rxandroid:2.0.2"
+            ],
+            additional : [
+                    shuffle :  'com.meetic.shuffle:shuffle:1.0.8',
+                    drageur : 'com.meetic.dragueur:dragueur:1.0.3',
+                    card : 'com.yuyakaido.android:card-stack-view:2.2.1'
+            ]
+    ]
+
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath deps.android.gradlePlugin
+        classpath deps.kotlin.gradlePlugin
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
