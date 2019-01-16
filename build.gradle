@@ -85,6 +85,7 @@ buildscript {
                     'retrofit'           : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
                     'retroRx'            : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}",
                     'moshi'              : "com.squareup.retrofit2:converter-moshi:${versions.retrofit}",
+                    'moshikt'            : "com.squareup.moshi:moshi-kotlin:1.8.0",
                     'gsonConverter'      : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
                     'okhttp'             : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
                     'picasso'            : "com.squareup.picasso:picasso:${versions.picasso}",

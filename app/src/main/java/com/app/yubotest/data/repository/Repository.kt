@@ -19,18 +19,16 @@ class Repository @Inject constructor(
 ) : BaseRepository {
     val allCompositeDisposable: MutableList<Disposable> = arrayListOf()
 
-    override fun list(): LiveData<Response> {
-        val mutableLiveData = MutableLiveData<Response>()
+    override fun list(): LiveData<List<User>> {
+        val mutableLiveData = MutableLiveData<List<User>>()
         val disposable = remoteYuboService.provideYuboService(remoteYuboService.provideRetrofitInterface())
             .list()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe( {res ->
                 if (true || res.result.equals("ok")){
-                    mutableLiveData.value = res
-                    Log.d("Repo", "$res")
+                    mutableLiveData.value = res.data
                 } else {
-                    Log.d("Repo", "$res")
                     throw Throwable("SymplRepository -> on Error occurred - ${object{}.javaClass.enclosingMethod?.name}")
                 }
             }, {t: Throwable? -> t?.printStackTrace()})

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -8,12 +8,12 @@
     <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent" app:srcCompat="@color/colorPrimaryDark"
-            android:id="@+id/imageView"/>
+            android:id="@+id/picture" android:scaleType="centerCrop"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="90dp" android:layout_gravity="bottom"
-            android:background="@color/footer_color">
+            android:layout_height="120dp" android:layout_gravity="bottom"
+            android:background="@color/footer_color" android:padding="16dp">
         <TextView
                 android:text="TEST, 15"
                 android:layout_width="match_parent"
@@ -42,21 +42,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <ImageView android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   tools:srcCompat="@android:drawable/btn_star_big_on"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cross_swipe"
+                android:layout_gravity="center"/>
 
     </FrameLayout>
+
     <FrameLayout
             android:id="@+id/right_overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <ImageView android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   tools:srcCompat="@android:drawable/ic_menu_close_clear_cancel"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/heart_swipe"
+                android:layout_gravity="center"/>
 
     </FrameLayout>
-</FrameLayout>
+</android.support.v7.widget.CardView>

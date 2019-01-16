@@ -5,6 +5,7 @@ import com.app.yubotest.model.User
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -60,9 +61,11 @@ object RemoteService{
     @JvmStatic
     internal fun provideRetrofitInterface(): Retrofit {
         var moshi = Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
             .build()
         var userAdapter : JsonAdapter<List<User>> = moshi.adapter(userlist)
         var photosAdapter : JsonAdapter<List<Photos>> = moshi.adapter(photolist)
+
         return Retrofit.Builder()
             .client(provideHttpClient())
             .baseUrl("http://test2.yellw.co")

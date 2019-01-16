@@ -6,7 +6,7 @@ import com.app.yubotest.model.User
 
 interface BaseRepository{
 
-    fun list() : LiveData<Response>
+    fun list() : LiveData<List<User>>
     fun like(user: User) : LiveData<Response>
     fun dislike(user: User) : LiveData<Response>
 
